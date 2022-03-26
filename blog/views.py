@@ -40,3 +40,11 @@ class SearchView(ListView):
 	model = Post
 	template_name = "search.html"
 
+	def get_queryset(self):
+		query = self.request.GET.get('q')
+		if query:
+			object_list = self.model.objects.filter(name__icontains=query)
+		else:
+			object_list = self.model.objects.none()
+		return object_list
+
