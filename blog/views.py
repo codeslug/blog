@@ -40,12 +40,22 @@ class SearchView(ListView):
 	template_name = "search.html"
 	model = Post
 
-	def get_queryset(self):
-		name = self.kwargs.get('name', '')
-		object_list = self.model.objects.all()
-		if name:
-			object_list = object_list.filter(body__icontains=name)
-		return object_list
+# jake code
+def get_queryset(self, *args, **kwargs):
+		qs = super().get_queryset(*args, **kwargs)
+		query = self.request.GET.get('q')
+		if query:
+			return qs.filter(title=query)
+		return qs
+
+# stack overflow code
+	# def get_queryset(self):
+	# 	name = self.kwargs.get('name', '')
+	# 	object_list = self.model.objects.all()
+	# 	if name:
+	# 		object_list = object_list.filter(body__icontains=name)
+	# 	print(object_list)			
+	# 	return object_list
 
 	# this throws a name error
 	# def get_queryset(self):
