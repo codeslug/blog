@@ -6,7 +6,6 @@ from .views import (
 	BlogUpdateView, 
 	BlogDeleteView,
 	SearchView,
-	get_name.
 )
 
 urlpatterns = [
