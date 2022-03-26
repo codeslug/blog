@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<h1>Search!</h1>
+
+	<form type="get" action="." method="get">{% csrf_token %}
+		<input type="text" value="">
+		{{ form.as_p }}
+		<input type="submit" value="Search!">
+	</form>
+
+{% endblock content %}
