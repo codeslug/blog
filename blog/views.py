@@ -37,8 +37,8 @@ class BlogDeleteView(DeleteView):
 	success_url = reverse_lazy("home")
 
 class SearchView(ListView):
-	model = Post
 	template_name = "search.html"
+	model = Post
 
 	def get_queryset(self):
 		query = self.request.GET.get('q')
