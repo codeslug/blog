@@ -41,10 +41,23 @@ class SearchView(ListView):
 	model = Post
 
 	def get_queryset(self):
-		query = self.request.GET.get('q')
-		if query:
-			object_list = self.model.objects.filter(name__icontains=query)
-		else:
-			object_list = self.model.objects.none()
+		name = self.kwargs.get('name', '')
+		object_list = self.model.objects.all()
+		if name:
+			object_list = object_list.filter(body__icontains=name)
 		return object_list
+
+	# this throws a name error
+	# def get_queryset(self):
+	# 	query = self.request.GET.get('q')
+	# 	if query:
+	# 		object_list = self.model.objects.filter(name__icontains=query)
+	# 	else:
+	# 		object_list = self.model.objects.none()
+	# 	return object_list
+
+
+
+
+
 

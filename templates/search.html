@@ -3,14 +3,23 @@
 {% block content %}
 
 
+
+<!-- STACK OVERFLOW FORM -->
+	<form method='GET'>
+		<input type='text' name='q' value='{{ request.GET.q }}'>
+		<input class="button" type='submit' value="Search Profile">
+	</form>
+
+
+
 <!-- LIST VIEW FROM MAIN HOME PAGE -->
-<!-- 	{% for post in object_list %}
+	{% for post in object_list %}
 	 	<div class="post-entry">
 	 		<h2><a href="{% url "post_detail" post.pk %}">{{ post.title }}</a></h2>
 	 		<p>{{ post.body }}</p>
 	 	</div>
 	{% endfor %}
- -->
+
 
 <!-- MY OLD FORM -->
 <!-- 	<h1>Search!</h1>
@@ -19,12 +28,6 @@
 		{{ form.as_p }}
 		<input type="submit" value="Search!">
 	</form> -->
-
-<!-- STACK OVERFLOW FORM -->
-	<form method='GET'>
-		<input type='text' name='q' value='{{ request.GET.q }}'>
-		<input class="button" type='submit' value="Search Profile">
-	</form>
 
 
 {% endblock content %}

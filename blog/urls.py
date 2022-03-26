@@ -9,7 +9,7 @@ from .views import (
 )
 
 urlpatterns = [
-	path("search/?q=slugs", SearchView.as_view(), name="slugsearch"),
+	# path("search/?q=slugs", SearchView.as_view(), name="slugsearch"),
 	path("search/", SearchView.as_view(), name="search"),
 	path("post/<int:pk>/delete/", BlogDeleteView.as_view(), name="post_delete"),
 	path("post/<int:pk>/edit/", BlogUpdateView.as_view(), name="post_edit"),
